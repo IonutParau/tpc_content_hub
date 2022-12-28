@@ -31,7 +31,7 @@ void handleSessionTimeout(String id) {
 Future<HttpServer> createServer() async {
   final router = Router().plus;
 
-  router.get('/', (Request req) => Response.ok('I am alive'));
+  router.get('/', (Request _) => Response.ok('I am alive'));
 
   loadUserRoutes(router);
   loadLevelsRoutes(router);

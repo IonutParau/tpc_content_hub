@@ -23,6 +23,14 @@ class User {
   }
 
   static void delete(User user) {
+    final levels = user.map['levels'] as List;
+    final blueprints = user.map['blueprints'] as List;
+    final servers = user.map['servers'] as List;
+
+    levels.whereType<String>().map(UserLevel.delete);
+    blueprints.whereType<String>().map(UserBlueprint.delete);
+    servers.whereType<String>().map(UserServer.delete);
+
     final f = File(path.join('db', 'users', '${user.id}.json'));
 
     if (f.existsSync()) {
