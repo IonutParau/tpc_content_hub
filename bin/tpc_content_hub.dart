@@ -15,7 +15,7 @@ import 'db/user.dart';
 const Duration sessionTimeout = Duration(days: 2);
 
 void main(List<String> arguments) {
-  withHotreload(createServer, logLevel: Level.WARNING);
+  withHotreload(createServer, logLevel: Level.ALL);
 }
 
 final Map<String, User> sessions = {};
